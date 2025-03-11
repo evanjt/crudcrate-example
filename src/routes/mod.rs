@@ -14,8 +14,8 @@ pub fn build_router(db: &DatabaseConnection) -> Router {
     // Build the router with routes from the plots module
     let (router, api) = OpenApiRouter::with_openapi(ApiDoc::openapi())
         .merge(crate::common::views::router(db)) // Root routes
-        .nest("/api/todo", todo::views::router(db))
+        .nest("/todo", todo::views::router(db))
         .split_for_parts();
 
-    router.merge(Scalar::with_url("/api/docs", api))
+    router.merge(Scalar::with_url("/docs", api))
 }
