@@ -18,8 +18,7 @@ axum = { version = "0.8.0" }
 base64 = "0.22.1"
 byteorder = "1.5.0"
 chrono = { version = "0.4.40", features = ["serde"] }
-crudcrate = "0.2.3"
-# crudcrate = { path = "../crudcrate" }
+crudcrate = "0.2.4"
 dotenvy = "0.15.7"
 hyper = "1.6.0"
 migration = { path = "migration" }
