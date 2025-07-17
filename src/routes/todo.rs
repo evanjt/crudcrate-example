@@ -20,6 +20,11 @@ pub struct Model {
     // Updates the `last_updated` field when created and updated with Utc::now() function, and doesn't include it in the create or update models
     #[crudcrate(sortable, create_model = false, update_model = false, on_create = chrono::Utc::now(), on_update = chrono::Utc::now())]
     pub last_updated: DateTime<Utc>,
+    // Non-database field for additional metadata that doesn't get stored in the DB
+    // Use sea_orm(ignore) to exclude from DB mapping and crudcrate(non_db_attr) for API generation
+    #[sea_orm(ignore)]
+    #[crudcrate(non_db_attr = true, default = vec![])]
+    pub tags: Vec<String>,
 }
 
 // Sea-orm required relation fields
