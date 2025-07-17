@@ -1,6 +1,6 @@
 [package]
 name = "crudcrate-example"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 description = "An example API implementing crudcrate"
 license = "MIT"
@@ -13,13 +13,13 @@ categories = ["web-programming", "database"]
 members = [".", "migration"]
 
 [dependencies]
-async-trait = "0.1.85"
 axum = { version = "0.8.0" }
 base64 = "0.22.1"
 byteorder = "1.5.0"
-chrono = { version = "0.4.40", features = ["serde"] }
-crudcrate = "0.2.4"
-dotenvy = "0.15.7"
+chrono = { version = "0.4.41", features = ["serde"] }
+# crudcrate = "0.2.4"
+crudcrate = { path = "../crudcrate" }
+crudcrate-derive = { path = "../crudcrate-derive" }
 hyper = "1.6.0"
 migration = { path = "migration" }
 sea-orm = { version = "1.1.6", features = [
@@ -30,10 +30,14 @@ sea-orm = { version = "1.1.6", features = [
     "with-chrono",
     "with-json",
 ], default-features = false }
-sea-orm-migration = "1.1.7"
+sea-orm-migration = "1.1.13"
 serde = { version = "1.0.219", features = ["derive"] }
-tokio = { version = "1.44.0", features = ["full"] }
-utoipa = { version = "5.3.1", features = ["axum_extras", "uuid", "chrono"] }
+tokio = { version = "1.46.1", features = ["full"] }
+utoipa = { version = "5.4.0", features = ["axum_extras", "uuid", "chrono"] }
 utoipa-axum = "0.2.0"
 utoipa-scalar = { version = "0.3.0", features = ["axum"] }
 uuid = { version = "1.13.2", features = ["serde", "v4", "fast-rng"] }
+
+
+[lints.clippy]
+pedantic = "warn"

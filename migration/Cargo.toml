@@ -8,6 +8,10 @@ publish = false
 name = "migration"
 path = "src/lib.rs"
 
+[[bin]]
+name = "migration"
+path = "src/main.rs"
+
 [dependencies]
 async-std = { version = "1", features = ["attributes", "tokio1"] }
 uuid = "1.10.0"
@@ -16,5 +20,5 @@ uuid = "1.10.0"
 version = "1.0.0"
 features = [
   "runtime-tokio-rustls", # `ASYNC_RUNTIME` feature
-  "sqlx-postgres",        # `DATABASE_DRIVER` feature
+  "sqlx-sqlite",          # `DATABASE_DRIVER` feature
 ]
