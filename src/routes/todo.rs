@@ -22,8 +22,9 @@ pub struct Model {
     pub last_updated: DateTime<Utc>,
     // Non-database field for additional metadata that doesn't get stored in the DB
     // Use sea_orm(ignore) to exclude from DB mapping and crudcrate(non_db_attr) for API generation
+    // Also, the tags field will not be included in get_all or generated TodoList struct
     #[sea_orm(ignore)]
-    #[crudcrate(non_db_attr = true, default = vec![])]
+    #[crudcrate(non_db_attr = true, default = vec![], list_model = false)]
     pub tags: Vec<String>,
 }
 
